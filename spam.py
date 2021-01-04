@@ -1946,7 +1946,7 @@ e1.pack()
 e1.place(x = 0, y = 30)
 
 b1 = Button(root, 
-    text = "Захуярить",
+    text = "Заспамить",
     font = ("Segoe Script", "16"),
     bg = '#1c0f1a',
     fg = '#f216ce',
